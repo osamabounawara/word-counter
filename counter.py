@@ -1,12 +1,16 @@
-with open("text.txt", encoding="utf-8") as f:
+with open("arabe.txt", encoding="utf-8") as f:
     contenu = f.read()
-contenu=contenu.lower()
-mots = contenu.split()
+
+mots = contenu.lower().split()
 
 propres = []
 
 for word in mots:
-    word = word.strip("?!.,:;«»")
+    word = word.strip("?!.,:;«»%،؟؛")
+    for code in range(0x064B, 0x0653):
+        word = word.replace(chr(code), "")
+    for alif in "أإآ":
+        word = word.replace(alif, "ا")
     if word != "":
         propres.append(word)
 
