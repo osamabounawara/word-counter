@@ -1,4 +1,4 @@
-with open("arabe.txt", encoding="utf-8") as f:
+with open("darija.txt", encoding="utf-8") as f:
     contenu = f.read()
 
 mots = contenu.lower().split()
